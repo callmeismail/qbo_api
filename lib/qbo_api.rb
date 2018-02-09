@@ -8,6 +8,7 @@ require_relative 'qbo_api/connection'
 require_relative 'qbo_api/supporting'
 require_relative 'qbo_api/error'
 require_relative 'qbo_api/raise_http_exception'
+require_relative 'qbo_api/oauth2'
 require_relative 'qbo_api/entity'
 require_relative 'qbo_api/util'
 require_relative 'qbo_api/attachment'
@@ -15,10 +16,11 @@ require_relative 'qbo_api/api_methods'
 
 class QboApi
   extend Configuration
-  include Connection
+  prepend Connection
   include Supporting
   include Entity
   include Util
+  include OAuth2
   include Attachment
   include ApiMethods
 
